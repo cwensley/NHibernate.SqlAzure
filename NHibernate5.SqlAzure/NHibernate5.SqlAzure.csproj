@@ -101,7 +101,7 @@
       <Version>3.0.29</Version>
     </PackageReference>
     <PackageReference Include="NHibernate">
-      <Version>5.2.5</Version>
+      <Version>5.2.6</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

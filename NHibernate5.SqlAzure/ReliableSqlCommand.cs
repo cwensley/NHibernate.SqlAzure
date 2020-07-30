@@ -81,7 +81,7 @@ namespace NHibernate.SqlAzure
             return ReliableConnection.ExecuteCommand(Current);
         }
 
-        public IDataReader ExecuteReader()
+        public new IDataReader ExecuteReader()
         {
             return ReliableConnection.ExecuteCommand<IDataReader>(Current);
         }

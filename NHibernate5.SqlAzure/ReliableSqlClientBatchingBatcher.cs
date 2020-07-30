@@ -117,7 +117,7 @@ namespace NHibernate.SqlAzure
                 throw ADOExceptionHelper.Convert(Factory.SQLExceptionConverter, e, "could not execute batch command.");
             }
 
-            Expectations.VerifyOutcomeBatched(_totalExpectedRowsAffected, rowsAffected);
+            Expectations.VerifyOutcomeBatched(_totalExpectedRowsAffected, rowsAffected, (DbCommand)ps);
 
             _currentBatch.Dispose();
             _totalExpectedRowsAffected = 0;
