@@ -97,17 +97,9 @@
     <PackageReference Include="EnterpriseLibrary.TransientFaultHandling.Data">
       <Version>6.0.1304.1</Version>
     </PackageReference>
-    <PackageReference Include="ILMerge">
-      <Version>3.0.29</Version>
-    </PackageReference>
     <PackageReference Include="NHibernate">
       <Version>5.5.2</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>mkdir "$(TargetDir)Combined"
-"$(ProjectDir)..\packages\ilmerge.2.14.1208\tools\ILMerge.exe" /log:log.txt /v4 /target:library "$(TargetPath)" "$(TargetDir)Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.dll" "$(TargetDir)Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.Data.dll" /out:"$(TargetDir)Combined\NHibernate.SqlAzure.dll"
-copy "$(TargetDir)NHibernate.SqlAzure.XML" "$(TargetDir)Combined\NHibernate.SqlAzure.XML"</PostBuildEvent>
-  </PropertyGroup>
 </Project>
