@@ -45,9 +45,22 @@ namespace NHibernate.SqlAzure
         /// <summary>
         /// Returns the class to use for the Batcher Factory.
         /// </summary>
-        public System.Type BatcherFactoryClass
-        {
+        System.Type IEmbeddedBatcherFactoryProvider.BatcherFactoryClass
+		{
             get { return typeof(ReliableSqlClientBatchingBatcherFactory); }
         }
-    }
+
+		public override DbCommand UnwrapDbCommand(DbCommand command)
+		{
+            if (command is ReliableSqlCommand reliableCommand)
+                return reliableCommand.Current;
+			return base.UnwrapDbCommand(command);
+		}
+
+		public override void AdjustCommand(DbCommand command)
+		{
+			base.AdjustCommand(command);
+		}
+
+	}
 }
